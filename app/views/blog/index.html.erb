@@ -1,9 +1,12 @@
 <h1>Blog App</h1>
 
 <ul>
-  <% @blog.each do |blog| %>
+  <% @blogs.each do |blog| %>
     <li>
-      <%= blog.activity %>
+      <%= link_to blog.title, blog_path(blog) %>
     </li>
   <% end %>
 </ul>
+<p>
+  <%= link_to "blog post", 'blog/new' %>
+</p>
