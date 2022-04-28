@@ -14,8 +14,15 @@ class BlogController < ApplicationController
   def create
     @blog = Blog.create(blog_params)
     if @blog.valid?
-      redirect_to blog_path
+      redirect_to '/blogs'
     end
+
+    def destroy
+    @blog = blog.find(params[:id])
+    @blog.destroy
+    redirect_to '/blogs', :notice => "Your blog has been deleted"
+    end
+    
   end
 
   private
